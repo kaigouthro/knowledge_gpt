@@ -15,7 +15,7 @@ def pop_docs_upto_limit(
 
     token_count: int = chain.prompt_length(docs, question=query)  # type: ignore
 
-    while token_count > max_len and len(docs) > 0:
+    while token_count > max_len and docs:
         docs.pop()
         token_count = chain.prompt_length(docs, question=query)  # type: ignore
 
