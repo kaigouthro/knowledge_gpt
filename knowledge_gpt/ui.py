@@ -28,7 +28,7 @@ def is_query_valid(query: str) -> bool:
 def is_file_valid(file: File) -> bool:
     if (
         len(file.docs) == 0
-        or "".join([doc.page_content for doc in file.docs]).strip() == ""
+        or not "".join([doc.page_content for doc in file.docs]).strip()
     ):
         st.error("Cannot read document! Make sure the document has selectable text")
         logger.error("Cannot read document")

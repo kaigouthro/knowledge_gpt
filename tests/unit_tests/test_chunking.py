@@ -8,8 +8,7 @@ from .fake_file import FakeFile
 @pytest.fixture
 def single_page_file():
     doc = Document(page_content="This is a page.\nIt has stuff.")
-    file = FakeFile(name="test.txt", id="1", docs=[doc])
-    return file
+    return FakeFile(name="test.txt", id="1", docs=[doc])
 
 
 @pytest.fixture
@@ -18,8 +17,7 @@ def multi_page_file():
         Document(page_content="This is the first page", metadata={"page": 1}),
         Document(page_content="This is the second page.", metadata={"page": 2}),
     ]
-    file = FakeFile(name="test.pdf", id="2", docs=docs)
-    return file
+    return FakeFile(name="test.pdf", id="2", docs=docs)
 
 
 def test_chunk_file_single_page_no_overlap(single_page_file):
